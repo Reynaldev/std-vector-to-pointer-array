@@ -6,7 +6,7 @@
 template <typename T>
 T * std_vec_to_ptr_arr(const std::vector<T> &vec)
 {
-    T *arr = (T*) malloc(sizeof(T) * vec.size());
+    T *arr = new T[vec.size()];
 
     for (int i = 0; i < vec.size(); i++)
         *(arr + i) = vec[i];
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 
     int *p = std_vec_to_ptr_arr(vec);
 
-    // int *p = (int*) malloc(sizeof(int) * vec.size());
+    // int *p = new int[vec.size()];
     // std_vec_to_ptr_arr(vec, p);
 
     printf("Ptr arr:\n\t");
