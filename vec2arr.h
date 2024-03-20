@@ -1,4 +1,17 @@
-#include <iostream>
+/*
+===================
+std::vector<> to pointer array.
+
+Usage: Just copy this header file to your own project
+
+made by ReynDev
+
+Note:
+This file comes with no guarantee.
+You may modify, distribute, or share this file however you like.
+===================
+*/
+
 #include <cstring>
 #include <vector>
 
@@ -21,33 +34,4 @@ void std_vec_to_ptr_arr(const std::vector<T> &vec, T *dst)
 {
     for (int i = 0; i < vec.size(); i++)
         *(dst + i) = vec[i];
-}
-
-int main(int argc, char **argv)
-{
-    std::vector<int> vec;
-
-    for (int i = 1; i < argc; i++)
-        vec.push_back(atoi(*(argv + i)));
-    
-    printf("Vector:\n\t");
-    for (int i : vec)
-        printf("%d ", i);
-
-    putchar('\n');
-
-    // There are two of the same function to convert std::vector<> into *array 
-
-    int *p = std_vec_to_ptr_arr(vec);
-
-    // int *p = new int[vec.size()];
-    // std_vec_to_ptr_arr(vec, p);
-
-    printf("Ptr arr:\n\t");
-    for (int i = 0; i < vec.size(); i++)
-        printf("%d ", *(p + i));
-
-    delete[] p;
-
-    return 0;
 }
